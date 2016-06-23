@@ -1,4 +1,5 @@
-import { app, BrowserWindow, Menu, shell } from 'electron';
+import { app, BrowserWindow, shell } from 'electron';
+import { openContextMenu } from './app/desktop/context_menu';
 
 let mainWindow = null;
 
@@ -33,15 +34,6 @@ app.on('ready', () => {
 
     if (process.env.NODE_ENV === 'development') {
         mainWindow.openDevTools();
-        mainWindow.webContents.on('context-menu', (e, props) => {
-            const { x, y } = props;
-
-            Menu.buildFromTemplate([{
-                label: 'Inspect element',
-                click() {
-                    mainWindow.inspectElement(x, y);
-                }
-            }]).popup(mainWindow);
-        });
+        mainWindow.webContents.on('context-menu', openContextMenu(mainWindow));
     }
 });
