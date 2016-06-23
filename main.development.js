@@ -1,7 +1,5 @@
 import { app, BrowserWindow, Menu, shell } from 'electron';
 
-let menu;
-let template;
 let mainWindow = null;
 
 
@@ -11,7 +9,7 @@ if (process.env.NODE_ENV === 'development') {
 
 
 app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') app.quit();
+    app.quit();
 });
 
 
