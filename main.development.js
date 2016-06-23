@@ -17,21 +17,22 @@ app.on('window-all-closed', () => {
 app.on('ready', () => {
   mainWindow = new BrowserWindow({
     show: false,
-    width: 1024,
-    height: 728
+    width: 600,
+    height: 400,
+    maximizable: false
   });
-  
+
   mainWindow.loadURL(`file://${__dirname}/app/app.html`);
-  
+
   mainWindow.webContents.on('did-finish-load', () => {
     mainWindow.show();
     mainWindow.focus();
   });
-  
+
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
-  
+
   if (process.env.NODE_ENV === 'development') {
     mainWindow.openDevTools();
     mainWindow.webContents.on('context-menu', openContextMenu(mainWindow));

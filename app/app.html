@@ -21,7 +21,7 @@
   (function () {
     if (process.env.NODE_ENV === 'development') {
       const devtoolsInstaller = require('electron-devtools-installer');
-      devtoolsInstaller.default(devtoolsInstaller.REACT_DEVELOPER_TOOLS).catch(() = > {});
+      devtoolsInstaller.default(devtoolsInstaller.REACT_DEVELOPER_TOOLS).catch(function(){});
     }
 
     const script = document.createElement('script');
