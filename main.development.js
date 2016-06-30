@@ -1,6 +1,8 @@
 import {app, BrowserWindow, shell} from 'electron';
 import {openContextMenu} from './app/desktop/context_menu';
 
+import './app/desktop/application_menu';
+
 let mainWindow = null;
 
 
