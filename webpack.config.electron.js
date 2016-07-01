@@ -3,17 +3,17 @@ import baseConfig from './webpack.config.base';
 
 export default {
   ...baseConfig,
-  
+
   devtool: 'source-map',
-  
+
   entry: './main.development',
-  
+
   output: {
     ...baseConfig.output,
     path: __dirname,
     filename: './main.js'
   },
-  
+
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
@@ -22,7 +22,7 @@ export default {
     }),
     new webpack.BannerPlugin(
       'require("source-map-support").install();',
-      {raw: true, entryOnly: false}
+      { raw: true, entryOnly: false }
     ),
     new webpack.DefinePlugin({
       'process.env': {
@@ -30,14 +30,14 @@ export default {
       }
     })
   ],
-  
+
   target: 'electron-main',
-  
+
   node: {
     __dirname: false,
     __filename: false
   },
-  
+
   externals: [
     ...baseConfig.externals,
     'font-awesome',

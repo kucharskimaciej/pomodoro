@@ -26,7 +26,7 @@ const server = app.listen(PORT, 'localhost', err => {
     console.error(err);
     return;
   }
-  
+
   console.log(`Listening at http://localhost:${PORT}`);
 });
 

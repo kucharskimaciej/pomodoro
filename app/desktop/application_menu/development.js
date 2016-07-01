@@ -12,8 +12,9 @@ const devTools = {
   label: 'Toggle Developer Tools',
   accelerator: accelerators.TOGGLE_DEVTOOLS,
   click(_, focusedWindow) {
-    if (focusedWindow)
+    if (focusedWindow) {
       focusedWindow.webContents.toggleDevTools();
+    }
   }
 };
 

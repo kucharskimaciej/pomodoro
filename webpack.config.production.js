@@ -4,23 +4,23 @@ import baseConfig from './webpack.config.base';
 
 const config = {
   ...baseConfig,
-  
+
   devtool: 'source-map',
-  
+
   entry: './app/index',
-  
+
   output: {
     ...baseConfig.output,
-    
+
     publicPath: '../dist/'
   },
-  
+
   module: {
     ...baseConfig.module,
-    
+
     loaders: [
       ...baseConfig.module.loaders,
-      
+
       {
         test: /\.global\.css$/,
         loader: ExtractTextPlugin.extract(
@@ -28,7 +28,7 @@ const config = {
           'css-loader'
         )
       },
-      
+
       {
         test: /^((?!\.global).)*\.css$/,
         loader: ExtractTextPlugin.extract(
@@ -38,7 +38,7 @@ const config = {
       }
     ]
   },
-  
+
   plugins: [
     ...baseConfig.plugins,
     new webpack.optimize.OccurrenceOrderPlugin(),
@@ -51,9 +51,9 @@ const config = {
         warnings: false
       }
     }),
-    new ExtractTextPlugin('style.css', {allChunks: true})
+    new ExtractTextPlugin('style.css', { allChunks: true })
   ],
-  
+
   target: 'electron-renderer'
 };
 

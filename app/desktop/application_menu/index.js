@@ -1,6 +1,6 @@
-import {Menu} from 'electron';
+import { Menu } from 'electron';
 
-import {DevelopmentMenu} from './development';
+import { DevelopmentMenu } from './development';
 
 const template = [];
 

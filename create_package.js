@@ -54,7 +54,7 @@ if (version) {
     } else {
       DEFAULT_OPTS.version = stdout.split('electron-prebuilt@')[1].replace(/\s/g, '');
     }
-    
+
     startPack();
   });
 }
@@ -79,7 +79,7 @@ function startPack() {
         // build for all platforms
         const archs = ['ia32', 'x64'];
         const platforms = ['linux', 'win32', 'darwin'];
-        
+
         platforms.forEach(plat => {
           archs.forEach(arch => {
             pack(plat, arch, log(plat, arch));
@@ -98,7 +98,7 @@ function startPack() {
 function pack(plat, arch, cb) {
   // there is no darwin ia32 electron
   if (plat === 'darwin' && arch === 'ia32') return;
-  
+
   const iconObj = {
     icon: DEFAULT_OPTS.icon + (() => {
       let extension = '.png';
@@ -110,7 +110,7 @@ function pack(plat, arch, cb) {
       return extension;
     })()
   };
-  
+
   const opts = Object.assign({}, DEFAULT_OPTS, iconObj, {
     platform: plat,
     arch,
@@ -118,7 +118,7 @@ function pack(plat, arch, cb) {
     'app-version': pkg.version || DEFAULT_OPTS.version,
     out: `release/${plat}-${arch}`
   });
-  
+
   packager(opts, cb);
 }
 
