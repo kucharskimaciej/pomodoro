@@ -7,15 +7,12 @@ function getInitialTimerState() {
 }
 
 export default function timerReducer(state = getInitialTimerState(), action) {
-  const currentTime = Date.now();
-  const elapsedTime = currentTime - state.startedAt;
-
   switch (action.type) {
     case actions.TIMER_START:
       return {
         running: true,
         duration: action.payload.durationInSeconds,
-        startedAt: action.payload.startTime,
+        startedAt: action.payload.startTime.toDate(),
         elapsed: 0
       };
 
@@ -26,10 +23,7 @@ export default function timerReducer(state = getInitialTimerState(), action) {
       };
 
     case actions.TIMER_TICK:
-      return {
-        ...state,
-        elapsed: elapsedTime
-      };
+      return { ...state };
 
     default:
       return state;

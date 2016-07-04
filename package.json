@@ -76,6 +76,7 @@
   "dependencies": {
     "electron-debug": "^1.0.1",
     "font-awesome": "^4.6.3",
+    "moment": "^2.14.1",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-redux": "^4.4.5",

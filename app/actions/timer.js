@@ -1,6 +1,6 @@
 import { actions } from '../constants';
 import { delay } from '../lib/time_as_promise';
-
+import moment from 'moment';
 
 const startTimer = (durationInSeconds, startTime) => ({
   type: actions.TIMER_START,
@@ -13,7 +13,7 @@ const stopTimer = () => ({
   type: actions.TIMER_STOP
 });
 
-export const runTimer = (durationInSeconds, startTime = Date.now()) => (dispatch) => {
+export const runTimer = (durationInSeconds, startTime = moment()) => (dispatch) => {
   dispatch(startTimer(durationInSeconds, startTime));
   return delay(durationInSeconds).then(() => dispatch(stopTimer()));
 };
