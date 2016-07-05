@@ -9,7 +9,7 @@ const startTimer = (durationInSeconds, startTime) => ({
   }
 });
 
-const stopTimer = () => ({
+export const stopTimer = () => ({
   type: actions.TIMER_STOP
 });
 
