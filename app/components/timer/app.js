@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import { formatTime } from '../../lib/formatters';
-import { getRemainingTime } from '../../reducers';
+import { getRemainingTime, getTimerDuration } from '../../reducers';
 
 class AppComponent extends React.Component {
   render() {
@@ -11,7 +11,8 @@ class AppComponent extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    remainingTime: formatTime(getRemainingTime(state))
+    remainingTime: formatTime(getRemainingTime(state)),
+    timerDuration: getTimerDuration(state)
   };
 };
 

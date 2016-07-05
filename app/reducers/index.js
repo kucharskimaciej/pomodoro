@@ -2,9 +2,11 @@ import { combineReducers } from 'redux';
 import moment from 'moment';
 
 import timer from './timer';
+import settings from './settings';
 
 export default combineReducers({
-  timer
+  timer,
+  settings
 });
 
 export const getTimer = state => state.timer;
@@ -19,3 +21,6 @@ export const getRemainingTime = state => {
 
   return moment().add(25, 'minutes').diff(moment());
 };
+
+export const getTimerDuration = state => state.settings.duration * 1000;
+export const getTickInterval = state => state.settings.tickInterval * 1000;

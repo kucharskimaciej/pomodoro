@@ -11,7 +11,6 @@ export default function timerReducer(state = getInitialTimerState(), action) {
     case actions.TIMER_START:
       return {
         running: true,
-        duration: action.payload.durationInSeconds,
         startedAt: action.payload.startTime.toDate(),
         elapsed: 0
       };

@@ -1,8 +1,9 @@
 import store from '../store';
 import { timerTick } from '../actions/timer';
+import { getTickInterval } from '../reducers'
 
 const select = (state) => state.timer.running;
-const makeTimerTicks = (interval = 1000) => {
+const makeTimerTicks = (interval = getTickInterval()) => {
   let currentInterval = null;
 
   return () => {
