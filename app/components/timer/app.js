@@ -23,8 +23,12 @@ class AppComponent extends React.Component {
 }
 
 AppComponent.propTypes = {
-  remainingTime: React.PropTypes.string,
-  timerDuration: React.PropTypes.number
+  remainingTime: React.PropTypes.string.isRequired,
+  timerDuration: React.PropTypes.number.isRequired,
+  timerRunning: React.PropTypes.bool.isRequired,
+
+  startTimer: React.PropTypes.func.isRequired,
+  stopTimer: React.PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
