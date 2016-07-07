@@ -1,6 +1,7 @@
 function getInitialSettingsState() {
   return {
-    duration: 30,
+    sessionDuration: 25,
+    breakDuration: 5,
     tickInterval: 1
   };
 }

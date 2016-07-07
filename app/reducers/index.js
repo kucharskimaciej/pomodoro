@@ -23,5 +23,5 @@ export const getRemainingTime = state => {
   return moment().add(25, 'minutes').diff(moment());
 };
 
-export const getTimerDuration = state => state.settings.duration;
+export const getTimerDuration = state => state.settings.sessionDuration;
 export const getTickInterval = state => state.settings.tickInterval * 1000;
