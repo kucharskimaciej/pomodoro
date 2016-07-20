@@ -1,5 +1,5 @@
 import { BrowserWindow } from 'electron';
-import { dimensions } from './constants';
+import { dimensions, platform } from './constants';
 
 export default function getApplicationWindow() {
   const windowOptions = {
@@ -9,16 +9,16 @@ export default function getApplicationWindow() {
     maximizable: false
   };
 
-  if (process.platform === 'darwin') {
-    Object.assign(windowOptions, {
-      titleBarStyle: 'hidden'
-    });
-  }
-
-  if (['freebsd', 'linux', 'sunos'].indexOf(process.platform) !== -1) {
-    Object.assign(windowOptions, {
-      frame: false
-    });
+  if (process.env.NODE_ENV !== 'development') {
+    if (platform.OSX) {
+      Object.assign(windowOptions, {
+        titleBarStyle: 'hidden'
+      });
+    } else {
+      Object.assign(windowOptions, {
+        frame: false
+      });
+    }
   }
 
   return new BrowserWindow(windowOptions);

@@ -1,5 +1,7 @@
+import { platform } from './constants';
+
 export default Object.freeze({
-  TOGGLE_DEVTOOLS: process.platform === 'darwin' ? 'Alt+Command+I' : 'Ctrl+Shift+I',
+  TOGGLE_DEVTOOLS: platform.OSX ? 'Alt+Command+I' : 'Ctrl+Shift+I',
   RELOAD: 'CmdOrCtrl+R',
   KILL: 'CmdOrCtrl+Q'
 });
