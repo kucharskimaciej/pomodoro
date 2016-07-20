@@ -1,5 +1,6 @@
 import { app, BrowserWindow } from 'electron';
 import { openContextMenu } from './app/desktop/context_menu';
+import getApplicationWindow from './app/desktop/app_window';
 
 import './app/desktop/application_menu';
 
@@ -17,12 +18,7 @@ app.on('window-all-closed', () => {
 
 
 app.on('ready', () => {
-  mainWindow = new BrowserWindow({
-    show: false,
-    width: 600,
-    height: 400,
-    maximizable: false
-  });
+  mainWindow = getApplicationWindow();
 
   mainWindow.loadURL(`file://${__dirname}/app/app.html`);
 
